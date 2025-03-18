@@ -28,6 +28,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=30)
     surname = models.CharField(max_length=30)
     nickname = models.CharField(max_length=30, unique=True, null=False, blank=False)
+    
 
     def clean(self):
         validate_unique_nickname(self.nickname, instance=self)
@@ -38,3 +39,4 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
